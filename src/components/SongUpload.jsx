@@ -1,93 +1,21 @@
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
-import jsmediatags from "jsmediatags";
 import "./SongUpload.css";
 
 export default function SongUpload() {
     const nav = useNavigate();
     const [saving, setSaving] = useState(false);
 
-    const [formValues, setFormValues] = useState({
-            title:
-                "",
-            artist:
-                "",
-            album:
-                "",
-            genre:
-                "",
-            duration:
-                "",
-            releaseYear:
-                "",
-
-        })
-    ;
-
-    const handleChange = (e) =>
-        setFormValues({...formValues, [e.target.name]: e.target.value});
-
-
-    const readMetaData = (file) => {
-        jsmediatags.read(file, {
-            onSuccess:
-                ({tags}) => {
-                    setFormValues(v => ({
-
-                        ...
-                            v,
-                        title:
-                            tags.title || v.title,
-                        artist:
-                            tags.artist || v.artist,
-                        album:
-                            tags.album || v.album,
-                        genre:
-                            tags.genre || v.genre,
-                        releaseYear:
-                            tags.year || v.releaseYear,
-
-                    }))
-                    ;
-                },
-            onError:
-                () => {
-                }
-
-        })
-        ;
-
-        const audio = document.createElement("audio");
-        audio.preload = "metadata";
-        audio.src = URL.createObjectURL(file);
-        audio.onloadedmetadata = () => {
-            setFormValues(v => ({...v, duration: Math.round(audio.duration)}));
-            URL.revokeObjectURL(audio.src);
-
-        };
-    };
-
-    const handleAudioSelect = (e) => {
-
-        const file = e.target.files?.[0];
-
-        if (file) readMetaData(file);
-
-    };
-
-
     const handleUpload = async (e) => {
         e.preventDefault();
         setSaving(true);
 
         const data = new FormData(e.target);
-        Object.entries(formValues).forEach(([k, v]) => data.set(k, v));
 
-        const res = await fetch("/api/songs", {
+        const res = await fetch("/api/songs", {  // gleicher Endpunkt wie in songs.js
             method: "POST",
             body: data,
         });
-
 
         setSaving(false);
         if (res.ok) {
