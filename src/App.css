@@ -1,0 +1,170 @@
+:root {
+    /* Background Colors */
+    --bg-primary: #121212;
+    --bg-secondary: #181818;
+    --bg-tertiary: #282828;
+    --bg-navbar: #000000;
+    --bg-sidebar: #121212;
+
+    /* Text Colors */
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    --text-tertiary: #7a7a7a;
+    --text-highlight: #1db954;
+
+    /* Accent Colors */
+    --accent-primary: #1db954;
+    --accent-secondary: #1ed760;
+    --accent-tertiary: #535353;
+
+    /* UI Elements */
+    --ui-border: #333333;
+    --ui-hover: #2a2a2a;
+    --ui-active: #3e3e3e;
+
+    /* Left Nav Width*/
+    --left-nav-width: 20%;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+    background-color: var(--bg-navbar);
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+
+.content-container {
+    display: flex;
+    height: calc(100vh - 70px);
+    width: 100%;
+    overflow: hidden;
+}
+
+
+.left-nav,
+.main-content {
+    transition: width 0.3s ease, left 0.3s ease;
+    overflow: hidden;
+}
+
+/* for main*/
+.main-content {
+    position: absolute;
+    width: calc(80% - var(--left-nav-width));
+    background-color: var(--bg-primary);
+    height: calc(100vh - 70px);
+    top: 70px;
+    left: var(--left-nav-width);
+    border-radius: 10px;
+    margin-left: 5px;
+    flex: 1;
+    overflow: auto;
+    padding: 20px;
+}
+
+.song-informations {
+    position: absolute;
+    width: 20%;
+    height: calc(100vh - 70px);
+    top: 70px;
+    left: calc(80% + 5px);
+    background-color: var(--bg-primary);
+    border-radius: 10px;
+    margin-left: 5px;
+    overflow: auto;
+    padding: 20px;
+}
+
+/* general styles for Nav*/
+
+.gray-background-circle {
+    background-color: var(--bg-tertiary);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 200ms ease-in-out;
+}
+
+
+.gray-background-circle svg {
+    width: 35px;
+    height: 35px;
+    fill: var(--text-primary);
+    transition: transform 200ms ease-in-out;
+}
+
+.gray-background-circle:hover {
+    background-color: var(--ui-hover);
+    transform: scale(1.1);
+}
+
+.account-btn.menu-open,
+.account-btn.menu-open:hover {
+    background-color: var(--bg-tertiary);
+    transform: none;
+}
+
+
+.searchbar {
+    background-color: var(--bg-tertiary);
+    border-radius: 50px;
+    padding: 5px 15px;
+    width: 350px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 50px;
+}
+
+.searchbar:hover {
+    background-color: var(--ui-hover);
+    border: 1px solid var(--accent-tertiary);
+}
+
+.searchbar svg {
+    position: absolute;
+    left: 15px;
+    width: 35px;
+    height: 35px;
+    fill: var(--text-secondary);
+}
+
+.searchbar input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-primary);
+    width: 100%;
+    font-family: inherit;
+    font-size: 16px;
+    padding-left: 40px;
+    height: 100%;
+}

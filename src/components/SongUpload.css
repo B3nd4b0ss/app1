@@ -1,0 +1,76 @@
+/* Gesamte Seite ausrichten wie Login-Card */
+.upload-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 70px); /* 70 px = TopNav */
+    background: var(--bg-primary);
+    overflow: auto;
+}
+
+.upload-card {
+    background: var(--bg-secondary);
+    border-radius: 18px;
+    padding: 40px 50px 46px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, .6);
+    width: 460px;
+    max-width: 92vw;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.upload-card h2 {
+    text-align: center;
+    color: var(--text-primary);
+}
+
+.upload-card input[type="text"],
+.upload-card input[type="number"],
+.upload-card input[type="file"] {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid var(--ui-border);
+    border-radius: 8px;
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    font-size: 15px;
+}
+
+.upload-card input[type="file"] {
+    padding: 10px 16px;
+}
+
+.upload-card input::file-selector-button {
+    background: var(--accent-primary);
+    border: none;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 12px;
+}
+
+.upload-card input::placeholder {
+    color: var(--text-tertiary);
+}
+
+.upload-card input:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+}
+
+.upload-card button {
+    background: var(--accent-primary);
+    border: none;
+    color: #fff;
+    padding: 14px 0;
+    font-size: 15px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background .2s;
+}
+
+.upload-card button:hover {
+    background: var(--accent-secondary);
+}

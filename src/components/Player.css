@@ -1,0 +1,103 @@
+/* ... existing code ... */
+.player {
+    padding: 16px 20px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    border-top: 1px solid var(--ui-border);
+    /* sitzt am unteren Rand des Viewports */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 110px;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cover {
+    width: 56px;
+    height: 56px;
+    border-radius: 6px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.info h4 {
+    font-size: 15px;
+    margin-bottom: 2px;
+}
+
+.info small {
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+/* Progress-Bar */
+.player input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 4px;
+    background: var(--ui-border);
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.player input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background: var(--accent-primary);
+    cursor: pointer;
+    margin-top: -4px; /* damit Thumb zentriert */
+}
+
+.player input[type="range"]::-moz-range-thumb {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background: var(--accent-primary);
+    border: none;
+}
+
+/* Controls */
+.controls button {
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform 0.15s;
+}
+
+.controls button:hover {
+    transform: scale(1.1);
+}
+
+/* Playlist */
+.playlist {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    overflow-x: auto;
+    padding: 4px 0 0;
+}
+
+.playlist li {
+    cursor: pointer;
+    color: var(--text-secondary);
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.playlist li.active,
+.playlist li:hover {
+    color: var(--text-primary);
+}
