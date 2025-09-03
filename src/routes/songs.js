@@ -6,7 +6,7 @@ const router = express.Router();
 // Nur Metadaten (keine Binärdaten) – Liste
 router.get('/', async (_, res) => {
     const songs = await Song.find({}, {
-        title: 1, artist: 1, duration: 1, cover: 0, audio: 0   // nur Felder, die wir anzeigen
+        title: 1, artist: 1, duration: 1, releaseYear: 1, album: 1, genre: 1,
     });
     res.json(songs);
 });

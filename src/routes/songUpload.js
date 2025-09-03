@@ -11,7 +11,7 @@ const filesMiddleware = upload.fields([
 
 const router = express.Router();
 
-router.post('/songs', filesMiddleware, async (req, res) => {
+router.post('/', filesMiddleware, async (req, res) => {
     try {
         const {title, artist, album, genre, duration, releaseYear} = req.body;
 

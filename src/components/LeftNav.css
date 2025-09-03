@@ -1,7 +1,15 @@
+:root {
+    --left-nav-width-default: 20%;
+    --left-nav-width-collapsed: 80px;
+    --left-nav-width-expanded: 80%;
+    --left-nav-padding: 20px;
+    --left-nav-gap: 20px;
+}
+
 
 .left-nav {
     background-color: var(--bg-sidebar);
-    height: 100%;
+    height: calc(100vh - 160px);
     width: 20%;
     padding: 20px;
     display: flex;
@@ -10,6 +18,8 @@
     transition: width 0.3s ease;
     overflow: hidden;
     border-radius: 10px;
+    position: absolute;
+    top: 70px;
 }
 
 
@@ -188,13 +198,7 @@
 }
 
 /* Design Tokens */
-:root {
-    --left-nav-width-default: 20%;
-    --left-nav-width-collapsed: 80px;
-    --left-nav-width-expanded: 80%;
-    --left-nav-padding: 20px;
-    --left-nav-gap: 20px;
-}
+
 
 /* Container */
 .left-nav {
@@ -203,7 +207,6 @@
     color: var(--text-primary);
     display: flex;
     flex-direction: column;
-    height: 100%;
     overflow: hidden;
     padding: var(--left-nav-padding);
     transition: width 0.3s ease;

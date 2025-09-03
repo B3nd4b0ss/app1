@@ -11,7 +11,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import {useEffect, useState, useRef} from "react";
 import {useNavigate} from "react-router-dom";
 
-export default function TopNav() {
+export default function TopNav({onSearchChange}) {
     const [open, setOpen] = useState(false);
     const nav = useNavigate();
     const menuRef = useRef(null);
@@ -34,6 +34,9 @@ export default function TopNav() {
         nav('/login', {replace: true});
     }
 
+    const handleSearchChange = (e) => {
+        onSearchChange(e.target.value);
+    }
     return (
         <div className="top-nav">
             <div className="top-nav-left">
@@ -50,7 +53,7 @@ export default function TopNav() {
                 </div>
                 <div className="searchbar">
                     <SearchIcon/>
-                    <input type="text" placeholder="Was möchtest du wiedergeben?"/>
+                    <input type="text" placeholder="Was möchtest du wiedergeben?" onChange={handleSearchChange}/>
                 </div>
             </div>
             <div className="top-nav-right">

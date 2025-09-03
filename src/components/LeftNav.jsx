@@ -50,11 +50,11 @@ export default function LeftNav({collapsed, setCollapsed}) {
             </div>
 
             <div className="left-nav-row">
-                <ul>
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
-                    <li>4</li>
+                <ul className="left-nav-filter-list">
+                    <li>Playlists</li>
+                    <li>Podcasts</li>
+                    <li>Alben</li>
+                    <li>Künstler*in</li>
                 </ul>
             </div>
 

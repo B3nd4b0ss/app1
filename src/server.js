@@ -23,7 +23,7 @@ app.use(express.json());
 app.use('/api', apiRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/songs', songRouter);
-app.use('/api', songUploadRouter);
+app.use('/api/upload', songUploadRouter);
 app.get('/', (_, res) => res.send('Hello World mit MongoDB!'));
 
 mongoose
